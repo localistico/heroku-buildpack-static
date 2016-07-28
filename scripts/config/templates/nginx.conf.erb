@@ -14,7 +14,6 @@ http {
   gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
   gzip_vary on;
   gzip_proxied any;
-  client_max_body_size 8M;
 
   server_tokens off;
 
@@ -39,6 +38,7 @@ http {
     port_in_redirect off;
     keepalive_timeout 5;
     root <%= root %>;
+    client_max_body_size <%= max_body_size %>;
   <% if error_page %>
     error_page 404 500 /<%= error_page %>;
   <% end %>
